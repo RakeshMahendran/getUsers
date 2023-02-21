@@ -35,7 +35,7 @@ function App() {
     setSearchCollege('')
   }
 
-
+   
 
   return (
     <div className="App">
@@ -54,6 +54,7 @@ function App() {
           <table>
             <thead>
               <tr className='bg-black text-white uppercase'>
+               <th className="p-2">Index</th>
                <th className="p-2">Name</th>
                <th className="p-2">College</th>
                <th className="p-2">Phone Number</th>
@@ -61,9 +62,9 @@ function App() {
               </tr>
             </thead>
             <tbody>
-      {realData.map((user) => (
-    
+      {realData.map((user,index) => (
               <tr className='even:bg-slate-200 hover:text-white hover:bg-red-500'>
+                     <td className='p-3'>{index+1}</td>
                      <td className="p-3">{user.name}</td>
                      <td className="p-3">{user.college}</td>
                      <td className="p-3">{user.phNumber}</td>
