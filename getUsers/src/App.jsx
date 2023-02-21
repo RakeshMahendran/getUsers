@@ -29,9 +29,10 @@ function App() {
 
   const handleSearch = () =>{
     const filteredData = realData.filter((item)=>{
-      item.college.toLowerCase().includes(searchCollege.toLowerCase())
+       return item.college.toLowerCase().includes(searchCollege.toLowerCase())
     })
-
+    setRealData(filteredData)
+    setSearchCollege('')
   }
 
 
@@ -42,6 +43,11 @@ function App() {
             <input 
             type="text" 
             placeholder="Search for colleges.." 
+            value={searchCollege}
+            onChange={(event)=>{
+              setSearchCollege(event.target.value)
+            }
+            }
             />
             <button className="bg-red-500 text-white p-3" onClick={handleSearch}>Search</button>
           </div>
