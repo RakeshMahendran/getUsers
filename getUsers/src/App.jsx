@@ -64,11 +64,11 @@ function App() {
             <tbody>
       {realData.map((user,index) => (
               <tr className='even:bg-slate-200 hover:text-white hover:bg-red-500'>
-                     <td className='p-3'>{index+1}</td>
-                     <td className="p-3">{user.name}</td>
-                     <td className="p-3">{user.college}</td>
-                     <td className="p-3">{user.phNumber}</td>
-                     <td className="p-3">{user.email}</td>
+                  <td className='p-3'>{index+1}</td>
+                  <td className="p-3">{user.name}</td>
+                  <td className="p-3">{user.college}</td>
+                  <td className="p-3">{user.phNumber}</td>
+                  <td className="p-3">{user.email}</td>
               </tr>
 
       ))}
@@ -79,28 +79,41 @@ function App() {
             <div className=' text-6xl font-bold'>
               Paid
             </div>
-            {realData.map((data,i)=>{
-              console.log('data',data)
-              const filter = data?.image ? (
-                <div key={i} className=' p-5 hover:bg-gray-100'>
-                  <div className=' grid grid-flow-row grid-cols-4 '>
-                     {/* <div className='p-3'>{index+1}</div> */}
-                     <div className="p-3">{data?.name}</div>
-                     <div className="p-3">{data?.college}</div>
-                     <div className="p-3">{data?.phNumber}</div>
-                     <div className="p-3">{data?.email}</div>
-                    
-                  </div>
-                  {data?.image.map((img,i)=>(
-                      <div key={i} className=''><a href={img} target='_blank' className=' max-w-7xl text-black hover:text-green-500'>{img}</a></div>
-                     ))}
-                </div>
-              ):null
+            <table>
+            <thead>
+              <tr className='bg-black text-white uppercase flex justify-between'>
+               {/* <th className="p-2">Index</th> */}
+               <th className="p-2">Name</th>
+               <th className="p-2">College</th>
+               <th className="p-2">Phone Number</th>
+               <th className="p-2">Email</th>
+               <th className=' p-2'>Images</th>
+              </tr>
+            </thead>
+            <tbody>
+              {realData.map((user,index) => {
+                const filter = user?.image ? (
+                  <tr className='even:bg-slate-200 hover:text-black hover:bg-gray-100  flex justify-between'>
+                    {/* <td className='p-3'>{index+1}</td> */}
+                    <td className="p-2">{user.name}</td>
+                    <td className="p-2">{user.college}</td>
+                    <td className="p-2">{user.phNumber}</td>
+                    <td className="p-2">{user.email}</td>
+                    <td className=' max-w-[200px] overflow-x-auto p-2'>
+                    {user?.image?.map((value,i)=>(
+                      <a href={value} key={i} className=' text-black hover:text-green-500'>{value} </a>
+                      ))}
+                    </td>
+                  </tr>
 
-              return (
-                <div >{filter}</div>
-              )
-            })}
+                ):null
+                return (
+                  <div className=' ' key={index} >{filter}</div>
+                )        
+                })}
+            </tbody>
+          </table>
+           
           </div>
     </div>
   );
@@ -108,6 +121,21 @@ function App() {
 
 export default App;
 
+
+
+                // <div key={i} className=' p-5 hover:bg-gray-100'>
+                //   <div className=' grid grid-flow-row grid-cols-4 '>
+                //      {/* <div className='p-3'>{index+1}</div> */}
+                //      <div className="p-3">{data?.name}</div>
+                //      <div className="p-3">{data?.college}</div>
+                //      <div className="p-3">{data?.phNumber}</div>
+                //      <div className="p-3">{data?.email}</div>
+                    
+                //   </div>
+                //   {data?.image.map((img,i)=>(
+                //       <div key={i} className=''><a href={img} target='_blank' className=' max-w-7xl text-black hover:text-green-500'>{img}</a></div>
+                //      ))}
+                // </div>
 {/* <thead>
                         <tr className='bg-black text-white uppercase'>
                         <th className="p-2">Index</th>
