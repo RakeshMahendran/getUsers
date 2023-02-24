@@ -92,7 +92,7 @@ function App() {
                     
                   </div>
                   {data?.image.map((img,i)=>(
-                      <div key={i} className=''><a href={img} className=' max-w-7xl text-black hover:text-green-500'>{img}</a></div>
+                      <div key={i} className=''><a href={img} target='_blank' className=' max-w-7xl text-black hover:text-green-500'>{img}</a></div>
                      ))}
                 </div>
               ):null
